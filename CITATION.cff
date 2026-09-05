@@ -1,0 +1,19 @@
+cff-version: 1.2.0
+message: "If you use this software in academic work, please cite it as follows."
+title: "Xiao Coin"
+type: software
+version: 0.1.0
+date-released: 2026-09-04
+authors:
+  - family-names: Xiao
+    given-names: Qingyang
+    alias: "Dr. Qingyang Xiao"
+license: MIT
+repository-code: "https://github.com/YOUR_USERNAME/Xiao-Coin"
+abstract: "A transparent fixed-supply ERC-20 prototype with Base Sepolia deployment tooling, tests, documentation, and a non-custodial dashboard."
+keywords:
+  - ERC-20
+  - Base
+  - Solidity
+  - Hardhat
+  - blockchain education

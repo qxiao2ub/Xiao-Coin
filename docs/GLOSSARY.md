@@ -1,0 +1,25 @@
+# Glossary
+
+- **Address:** Public EVM account or contract identifier beginning with `0x`.
+- **Base mainnet:** Production Base network, chain ID 8453.
+- **Base Sepolia:** Public Base test network, chain ID 84532.
+- **Block explorer:** Website that displays public blocks, transactions, contracts, and events.
+- **Chain ID:** Number that identifies an EVM network and helps prevent cross-chain replay.
+- **Contract address:** Unique address of one deployed smart-contract instance.
+- **Decimals:** Display convention for ERC-20 base units; XIAO uses 18.
+- **Deployer:** Account that signs the contract-creation transaction.
+- **ERC-20:** Common interface for fungible tokens on EVM-compatible networks.
+- **Gas:** Computation and storage cost paid in a network's native asset.
+- **Ignition:** Hardhat's declarative, resumable deployment system.
+- **Mainnet:** Production network where native gas assets have real economic value.
+- **MetaMask:** Browser wallet that can sign EVM transactions.
+- **Mint:** Increase token supply and assign new units to an address.
+- **Native coin:** Network asset used for gas, such as ETH on Base.
+- **Private key:** Secret signing material; anyone who obtains it can control the account.
+- **Remix VM:** Temporary EVM simulation inside Remix, separate from MetaMask accounts.
+- **Stablecoin:** Token designed to track a reference asset using reserves or another mechanism.
+- **Testnet:** Public network intended for testing; its faucet assets are not intended to have value.
+- **Token:** Smart-contract asset deployed on an existing blockchain.
+- **Treasury:** Address receiving and managing the initial XIAO supply.
+- **Transaction hash:** Unique public identifier for a submitted transaction.
+- **Verified source:** Explorer-published source shown to compile to the deployed bytecode.

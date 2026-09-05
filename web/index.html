@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Xiao Coin Base Sepolia testnet dashboard for inspecting and transferring XIAO."
+    />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self' https://cdn.jsdelivr.net; style-src 'self'; img-src 'self' data:; connect-src 'self' https://sepolia.base.org https://mainnet.base.org; object-src 'none'; base-uri 'self'; form-action 'self'"
+    />
+    <title>Xiao Coin | Base Sepolia Dashboard</title>
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+    <link rel="manifest" href="manifest.webmanifest" />
+    <meta name="theme-color" content="#071126" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="background-grid" aria-hidden="true"></div>
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="Xiao Coin home">
+        <img src="assets/xiao-coin-logo.svg" alt="Xiao Coin logo" />
+        <span>XIAO COIN</span>
+      </a>
+      <div class="header-actions">
+        <span id="networkBadge" class="badge badge-muted">Wallet disconnected</span>
+        <button id="connectButton" class="button button-primary" type="button">
+          Connect wallet
+        </button>
+      </div>
+    </header>
+
+    <main id="top">
+      <section class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">Transparent fixed-supply ERC-20 prototype</p>
+          <h1>One billion XIAO.<br />No hidden minting.</h1>
+          <p class="hero-text">
+            Xiao Coin is an educational and utility-token prototype built with
+            OpenZeppelin ERC-20 components. This dashboard defaults to Base
+            Sepolia testnet and does not display a price or promise investment value.
+          </p>
+          <div class="hero-buttons">
+            <button id="switchNetworkButton" class="button button-primary" type="button">
+              Switch to Base Sepolia
+            </button>
+            <a class="button button-secondary" href="#contract">Inspect contract</a>
+          </div>
+        </div>
+        <div class="token-orbit" aria-hidden="true">
+          <div class="orbit orbit-one"></div>
+          <div class="orbit orbit-two"></div>
+          <div class="coin-mark">X</div>
+        </div>
+      </section>
+
+      <section class="metrics" aria-label="Token specification">
+        <article class="metric-card"><span>Name</span><strong>Xiao Coin</strong></article>
+        <article class="metric-card"><span>Symbol</span><strong>XIAO</strong></article>
+        <article class="metric-card"><span>Fixed supply</span><strong>1,000,000,000</strong></article>
+        <article class="metric-card"><span>Target network</span><strong>Base Sepolia</strong></article>
+      </section>
+
+      <section id="contract" class="panel two-column">
+        <div>
+          <p class="eyebrow">Contract inspector</p>
+          <h2>Verify before interacting</h2>
+          <p class="muted">
+            Symbols are not unique. Enter the exact deployed contract address and
+            compare the returned metadata with the repository specification.
+          </p>
+          <label for="contractAddress">XIAO contract address</label>
+          <div class="input-row">
+            <input
+              id="contractAddress"
+              type="text"
+              autocomplete="off"
+              spellcheck="false"
+              placeholder="0x..."
+            />
+            <button id="loadContractButton" class="button button-primary" type="button">
+              Load
+            </button>
+          </div>
+          <div class="compact-actions">
+            <button id="addTokenButton" class="button button-secondary" type="button" disabled>
+              Add XIAO to wallet
+            </button>
+            <a id="explorerLink" class="button button-secondary disabled" href="#" target="_blank" rel="noopener noreferrer">
+              Open explorer
+            </a>
+          </div>
+        </div>
+
+        <dl class="data-grid">
+          <div><dt>Connected account</dt><dd id="accountValue">Not connected</dd></div>
+          <div><dt>Detected chain ID</dt><dd id="chainValue">-</dd></div>
+          <div><dt>Contract code</dt><dd id="codeValue">Not checked</dd></div>
+          <div><dt>Onchain name</dt><dd id="nameValue">-</dd></div>
+          <div><dt>Onchain symbol</dt><dd id="symbolValue">-</dd></div>
+          <div><dt>Decimals</dt><dd id="decimalsValue">-</dd></div>
+          <div><dt>Total supply</dt><dd id="supplyValue">-</dd></div>
+          <div><dt>Your balance</dt><dd id="balanceValue">-</dd></div>
+        </dl>
+      </section>
+
+      <section class="panel two-column">
+        <div>
+          <p class="eyebrow">Testnet transfer</p>
+          <h2>Send XIAO deliberately</h2>
+          <p class="muted">
+            The form calls only the standard ERC-20 transfer function. Check the
+            network, full recipient address, amount, and wallet simulation before signing.
+          </p>
+        </div>
+        <form id="transferForm" class="transfer-form">
+          <label for="recipientAddress">Recipient address</label>
+          <input id="recipientAddress" type="text" autocomplete="off" spellcheck="false" placeholder="0x..." />
+          <label for="transferAmount">Amount in XIAO</label>
+          <input id="transferAmount" type="text" inputmode="decimal" autocomplete="off" placeholder="100" />
+          <button id="sendButton" class="button button-primary" type="submit" disabled>
+            Review and send
+          </button>
+        </form>
+      </section>
+
+      <section class="panel">
+        <p class="eyebrow">Activity log</p>
+        <h2>Local session</h2>
+        <pre id="activityLog" class="activity-log" aria-live="polite">Ready. Connect a wallet or load a contract address.</pre>
+      </section>
+
+      <section class="risk-notice">
+        <strong>Testnet and risk notice</strong>
+        <p>
+          Base Sepolia assets have no intended monetary value. This repository is
+          software for education and prototyping, not an offer to sell securities,
+          not financial advice, and not a substitute for independent security and legal review.
+        </p>
+      </section>
+    </main>
+
+    <footer>
+      <span>Xiao Coin open-source prototype</span>
+      <span>Author: Dr. Qingyang Xiao</span>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/ethers@6.17.0/dist/ethers.min.js"></script>
+    <script src="config.js"></script>
+    <script src="abi.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>

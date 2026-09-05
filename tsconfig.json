@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "strict": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true,
+    "skipLibCheck": true,
+    "sourceMap": true,
+    "noEmit": true,
+    "types": ["node", "mocha"]
+  },
+  "include": [
+    "hardhat.config.ts",
+    "ignition/**/*.ts",
+    "scripts/**/*.ts",
+    "test/**/*.ts"
+  ],
+  "exclude": ["artifacts", "cache", "dist", "ignition/deployments", "node_modules"]
+}

@@ -1,0 +1,65 @@
+{
+  "name": "xiao-coin",
+  "version": "0.1.0",
+  "description": "A transparent fixed-supply ERC-20 implementation for Xiao Coin (XIAO), with tests, deployment tooling, documentation, and a static wallet dashboard.",
+  "private": true,
+  "type": "module",
+  "license": "MIT",
+  "author": "Dr. Qingyang Xiao",
+  "keywords": [
+    "xiao-coin",
+    "xiao",
+    "erc20",
+    "base",
+    "base-sepolia",
+    "solidity",
+    "hardhat",
+    "openzeppelin",
+    "web3"
+  ],
+  "engines": {
+    "node": ">=22.13.0",
+    "npm": ">=10.0.0"
+  },
+  "scripts": {
+    "clean": "hardhat clean",
+    "build": "hardhat build",
+    "typecheck": "tsc --noEmit",
+    "test": "hardhat test mocha",
+    "test:all": "hardhat test",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "lint:sol": "solhint \"contracts/**/*.sol\"",
+    "check:static": "node scripts/static-check.mjs",
+    "check": "npm run check:static && npm run lint:sol && npm run build && npm run typecheck && npm run test",
+    "preflight:base-sepolia": "hardhat run scripts/preflight.ts --network baseSepolia",
+    "deploy:base-sepolia": "hardhat run scripts/deploy.ts --build-profile production --network baseSepolia",
+    "deploy:base-sepolia:ignition": "hardhat ignition deploy ignition/modules/XiaoCoin.ts --network baseSepolia --parameters ignition/parameters/base-sepolia.json",
+    "verify:base-sepolia": "hardhat ignition deploy ignition/modules/XiaoCoin.ts --network baseSepolia --parameters ignition/parameters/base-sepolia.json --verify",
+    "inspect:base-sepolia": "hardhat run scripts/inspect-token.ts --network baseSepolia",
+    "transfer:base-sepolia": "hardhat run scripts/transfer.ts --network baseSepolia",
+    "web:configure": "node scripts/configure-web.mjs",
+    "deploy:base-mainnet": "node scripts/mainnet-release-guard.mjs"
+  },
+  "dependencies": {
+    "@openzeppelin/contracts": "5.6.1",
+    "ethers": "6.17.0"
+  },
+  "devDependencies": {
+    "@nomicfoundation/hardhat-ethers": "4.0.15",
+    "@nomicfoundation/hardhat-ignition": "3.1.8",
+    "@nomicfoundation/hardhat-ignition-ethers": "3.1.6",
+    "@nomicfoundation/hardhat-toolbox-mocha-ethers": "3.0.7",
+    "@types/chai": "^5.2.3",
+    "@types/chai-as-promised": "^8.0.2",
+    "@types/mocha": ">=10.0.10",
+    "@types/node": "^22.0.0",
+    "chai": "^6.2.2",
+    "hardhat": "3.15.0",
+    "mocha": "^11.0.0",
+    "prettier": "3.9.6",
+    "prettier-plugin-solidity": "2.4.1",
+    "solhint": "6.2.4",
+    "typescript": "~5.8.3"
+  }
+}

@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title desc">
+  <title id="title">Xiao Coin logo</title>
+  <desc id="desc">A luminous X inside a circular digital coin.</desc>
+  <defs>
+    <radialGradient id="bg" cx="32%" cy="24%" r="78%">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="0.24" stop-color="#69e7ff"/>
+      <stop offset="0.68" stop-color="#7168ff"/>
+      <stop offset="1" stop-color="#281c74"/>
+    </radialGradient>
+    <linearGradient id="x" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#061020"/>
+      <stop offset="1" stop-color="#111d3e"/>
+    </linearGradient>
+  </defs>
+  <circle cx="256" cy="256" r="238" fill="#060918" stroke="#69e7ff" stroke-width="8"/>
+  <circle cx="256" cy="256" r="204" fill="url(#bg)" stroke="#b9f6ff" stroke-width="5"/>
+  <path d="M148 126h72l39 66 40-66h67l-72 125 78 135h-72l-45-75-45 75h-70l80-135z" fill="url(#x)"/>
+  <circle cx="256" cy="256" r="218" fill="none" stroke="#ffffff" stroke-opacity="0.35" stroke-width="3" stroke-dasharray="9 14"/>
+</svg>

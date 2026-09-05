@@ -1,0 +1,20 @@
+{
+  "schemaVersion": 1,
+  "token": {
+    "name": "Xiao Coin",
+    "symbol": "XIAO",
+    "decimals": 18,
+    "totalSupplyBaseUnits": "1000000000000000000000000000",
+    "totalSupplyHuman": "1000000000"
+  },
+  "network": {
+    "chainId": "84532",
+    "name": "base-sepolia"
+  },
+  "contractAddress": null,
+  "deployer": null,
+  "treasury": null,
+  "transactionHash": null,
+  "blockNumber": null,
+  "createdAt": null
+}
