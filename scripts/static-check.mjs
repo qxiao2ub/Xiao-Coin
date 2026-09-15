@@ -1,91 +1,114 @@
-import { readFile, readdir, stat } from "node:fs/promises";
+import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
-const root = path.resolve(fileURLToPath(new URL("..", import.meta.url)));
-const contractPath = path.join(root, "contracts", "XiaoCoin.sol");
-const webConfigPath = path.join(root, "web", "config.js");
-const hardhatConfigPath = path.join(root, "hardhat.config.ts");
-const packagePath = path.join(root, "package.json");
-
-const contract = await readFile(contractPath, "utf8");
-const webConfig = await readFile(webConfigPath, "utf8");
-const hardhatConfig = await readFile(hardhatConfigPath, "utf8");
-const packageJson = JSON.parse(await readFile(packagePath, "utf8"));
-const failures = [];
-
-const requireText = (text, label) => {
-  if (!contract.includes(text)) failures.push(`Contract missing ${label}: ${text}`);
-};
-
-requireText('ERC20("Xiao Coin", "XIAO")', "metadata");
-requireText("1_000_000_000 * 10 ** 18", "fixed supply");
-requireText("_mint(treasury, INITIAL_SUPPLY)", "constructor mint");
-requireText("ZeroTreasuryAddress", "zero treasury protection");
-
-const forbiddenContractPatterns = [
-  /function\s+mint\s*\(/,
-  /function\s+setTax\s*\(/,
-  /function\s+blacklist\s*\(/,
-  /tx\.origin/,
-  /delegatecall/,
-  /selfdestruct/,
+const scriptDir = path.dirname(fileURLToPath(import.meta.url));
+const root = path.resolve(scriptDir, "..");
+const contract = "0xc62792b29E6aDbc179e47DAfCe159119bb918888";
+const required = [
+  "README.md",
+  "README.zh-CN.md",
+  "OFFICIAL_CONTRACT.md",
+  "CONTRACT_ADDRESS.txt",
+  "metadata/project.json",
+  "metadata/token.json",
+  "web/index.html",
+  "web/config.js",
+  "web/app.js",
+  "web/styles.css",
+  "web/assets/xiao-coin-logo.png",
+  "web/assets/token-icon-192.png",
+  "web/assets/token-icon-512.png",
+  "web/assets/base-meme-qr.png",
+  "web/assets/basescan-qr.png",
 ];
-for (const pattern of forbiddenContractPatterns) {
-  if (pattern.test(contract)) failures.push(`Forbidden contract pattern found: ${pattern}`);
+
+const errors = [];
+for (const rel of required) {
+  if (!fs.existsSync(path.join(root, rel))) errors.push(`Missing ${rel}`);
 }
 
-if (!webConfig.includes("chainId: 84532")) {
-  failures.push("Web dashboard is not pinned to Base Sepolia chain ID 84532.");
-}
-if (!webConfig.includes('chainIdHex: "0x14a34"')) {
-  failures.push("Web dashboard has an incorrect Base Sepolia hexadecimal chain ID.");
+function read(rel) {
+  return fs.readFileSync(path.join(root, rel), "utf8");
 }
 
-if (!hardhatConfig.includes("chainId: 84532")) {
-  failures.push("Hardhat configuration is missing Base Sepolia chain ID 84532.");
-}
-if (!hardhatConfig.includes('chainType: "op"')) {
-  failures.push("Hardhat Base configuration is not marked as OP Stack.");
-}
-if (!hardhatConfig.includes('configVariable("BASE_SEPOLIA_RPC_URL", {')) {
-  failures.push("Hardhat RPC fallback must use the Hardhat 3 options-object syntax.");
-}
-if (!hardhatConfig.includes('default: "https://sepolia.base.org"')) {
-  failures.push("Hardhat configuration is missing the official Base Sepolia RPC fallback.");
-}
-if (packageJson.engines?.node !== ">=22.13.0") {
-  failures.push("package.json must require Node.js >=22.13.0 for the pinned Hardhat release.");
-}
-
-async function walk(directory) {
-  const entries = await readdir(directory);
-  const output = [];
-  for (const entry of entries) {
-    if ([".git", "node_modules", "artifacts", "cache", "dist"].includes(entry)) continue;
-    const full = path.join(directory, entry);
-    const info = await stat(full);
-    if (info.isDirectory()) output.push(...(await walk(full)));
-    else output.push(full);
-  }
-  return output;
-}
-
-const privateKeyPattern = /\b0x[a-fA-F0-9]{64}\b/g;
-for (const file of await walk(root)) {
-  if (!/\.(?:ts|js|mjs|json|md|sol|yml|yaml|txt|html|css|svg)$/.test(file)) continue;
-  const contents = await readFile(file, "utf8");
-  const matches = contents.match(privateKeyPattern) ?? [];
-  if (matches.length > 0) {
-    failures.push(`Possible plaintext private key in ${path.relative(root, file)}`);
+for (const rel of [
+  "README.md",
+  "README.zh-CN.md",
+  "OFFICIAL_CONTRACT.md",
+  "CONTRACT_ADDRESS.txt",
+  "web/config.js",
+  "metadata/project.json",
+  "metadata/token.json",
+]) {
+  if (fs.existsSync(path.join(root, rel)) && !read(rel).includes(contract)) {
+    errors.push(`${rel} does not contain canonical contract`);
   }
 }
 
-if (failures.length > 0) {
-  console.error("Static repository checks failed:");
-  failures.forEach((failure) => console.error(`- ${failure}`));
+const config = read("web/config.js");
+if (!config.includes("chainId: 8453")) errors.push("web/config.js must use Base chain ID 8453");
+if (!config.includes('chainIdHex: "0x2105"')) errors.push("web/config.js must use chain ID hex 0x2105");
+if (config.includes("84532") || config.includes("11155111")) {
+  errors.push("web/config.js contains a testnet chain ID");
+}
+
+for (const rel of ["metadata/project.json", "metadata/token.json", "web/manifest.webmanifest", "package.json"]) {
+  try {
+    JSON.parse(read(rel));
+  } catch (error) {
+    errors.push(`${rel} invalid JSON: ${error.message}`);
+  }
+}
+
+function pngSize(rel) {
+  const b = fs.readFileSync(path.join(root, rel));
+  if (b.toString("hex", 0, 8) !== "89504e470d0a1a0a") throw new Error(`${rel} is not PNG`);
+  return [b.readUInt32BE(16), b.readUInt32BE(20)];
+}
+
+for (const [rel, expected] of [
+  ["web/assets/xiao-coin-logo.png", 1024],
+  ["web/assets/token-icon-192.png", 192],
+  ["web/assets/token-icon-512.png", 512],
+]) {
+  try {
+    const [w, h] = pngSize(rel);
+    if (w !== expected || h !== expected) {
+      errors.push(`${rel} is ${w}x${h}, expected ${expected}x${expected}`);
+    }
+  } catch (error) {
+    errors.push(error.message);
+  }
+}
+
+const textFiles = [];
+function walk(dir) {
+  for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
+    if ([".git", "node_modules"].includes(entry.name)) continue;
+    const full = path.join(dir, entry.name);
+    if (entry.isDirectory()) walk(full);
+    else if (/\.(md|html|js|json|yml|yaml|txt|cff|css)$/i.test(entry.name)) textFiles.push(full);
+  }
+}
+walk(root);
+
+const explicitSecretPatterns = [
+  /(?:private[_ -]?key|seed phrase|recovery phrase)\s*[:=]\s*["']?0x[a-fA-F0-9]{64}/i,
+  /(?:mnemonic|seed)[_ -]?(?:phrase)?\s*[:=]\s*["'][a-z]+(?:\s+[a-z]+){11,23}["']/i,
+];
+for (const full of textFiles) {
+  const text = fs.readFileSync(full, "utf8");
+  if (text.includes("YOUR_PRIVATE_KEY")) {
+    errors.push(`Private-key placeholder found in ${path.relative(root, full)}`);
+  }
+  for (const pattern of explicitSecretPatterns) {
+    if (pattern.test(text)) errors.push(`Possible embedded secret in ${path.relative(root, full)}`);
+  }
+}
+
+if (errors.length) {
+  console.error(`Static checks failed:\n- ${errors.join("\n- ")}`);
   process.exit(1);
 }
-
-console.log("Static repository checks passed.");
-console.log("Verified: fixed supply, no public mint/tax/blacklist patterns, correct Base Sepolia IDs, and no obvious plaintext private keys.");
+console.log(`Static checks passed for Xiao-Coin ${contract}.`);

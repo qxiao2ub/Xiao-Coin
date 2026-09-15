@@ -1,37 +1,32 @@
-# Roadmap
+# Community roadmap
 
-## Milestone 0: repository foundation
+This roadmap describes community and transparency work, not price targets or promises.
 
-- Fixed-supply ERC-20 contract.
-- Automated tests and static checks.
-- Remix and Hardhat deployment paths.
-- Security, operations, and legal-risk documentation.
-- Static Base Sepolia dashboard.
+## Phase 1 — official identity and safety
 
-## Milestone 1: Base Sepolia demonstration
+- Publish the canonical contract address and Base.meme page.
+- Publish the logo, project description, and bilingual repository.
+- Launch a read-only GitHub Pages information site.
+- Publish verification, scam-prevention, and risk documentation.
 
-- Deploy from a dedicated testnet wallet.
-- Verify source and publish deployment record.
-- Complete post-deployment checklist.
-- Test transfer and allowance behavior.
-- Publish GitHub Pages dashboard.
+## Phase 2 — community foundations
 
-## Milestone 2: real utility prototype
+- Establish verified official social channels only when securely administered.
+- Publish moderation rules and a transparent contributor process.
+- Create original memes, community art, and educational Base content.
+- Track and disclose paid promotions or material conflicts.
 
-- Define one narrow educational use case.
-- Keep the prototype testnet-only.
-- Measure user comprehension, wallet safety, and support burden.
-- Perform privacy and abuse analysis.
+## Phase 3 — transparency
 
-## Milestone 3: independent reviews
+- Publish periodic, timestamped launch and community updates.
+- Document creator-reward claims and tax/accounting procedures where appropriate.
+- Monitor counterfeit tokens and publish warnings.
+- Maintain the canonical link registry in this repository.
 
-- Contract review or audit.
-- Legal, tax, accounting, consumer, sanctions, and privacy review.
-- Treasury and key-management design.
-- Public documentation review for misleading claims.
+## Phase 4 — optional community experiments
 
-## Milestone 4: go/no-go decision
+- Non-financial community contests and creative campaigns.
+- Open-source dashboards that read public chain data.
+- Community voting or utility research only after technical and legal review.
 
-Mainnet is not assumed. Decide whether a blockchain token is actually necessary.
-A conventional database, points system, or nontransferable credential may better
-serve the product with less user and regulatory risk.
+No phase promises exchange listings, price appreciation, liquidity, revenue, or profit.

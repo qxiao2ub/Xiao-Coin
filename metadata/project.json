@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "project": "Xiao-Coin",
+  "symbol": "XIAO",
+  "tagline": "Small ideas. Big community.",
+  "description": "Xiao-Coin ($XIAO) is a community-driven meme coin built on Base, bringing together internet culture, creativity, humor, and community participation. Small ideas, big community. XIAO is created for entertainment and community engagement, with no promise of profit or guaranteed value.",
+  "descriptionZh": "肖币（XIAO）是构建于 Base 网络、由社区驱动的 Meme Coin，汇聚互联网文化、创意、幽默和社区参与。小创意，大社区。XIAO 用于娱乐和社区互动，不承诺利润或任何保证价值。",
+  "network": {
+    "name": "Base Mainnet",
+    "chainId": 8453,
+    "nativeCurrency": "ETH"
+  },
+  "contractAddress": "0xc62792b29E6aDbc179e47DAfCe159119bb918888",
+  "links": {
+    "baseMeme": "https://base.meme/coin/base:0xc62792b29E6aDbc179e47DAfCe159119bb918888",
+    "baseScanToken": "https://basescan.org/token/0xc62792b29E6aDbc179e47DAfCe159119bb918888",
+    "baseScanAddress": "https://basescan.org/address/0xc62792b29E6aDbc179e47DAfCe159119bb918888"
+  },
+  "launch": {
+    "platform": "Base.meme",
+    "mode": "Standard",
+    "pairToken": "ETH",
+    "raisingGoal": "2.5 ETH",
+    "taxAtLaunch": "0%",
+    "uniswapPath": "V4",
+    "totalSupply": "1000000000",
+    "bondingCurveAllocation": "800000000",
+    "liquidityAllocation": "200000000",
+    "automaticCreatorAllocation": "0"
+  },
+  "disclaimer": "Entertainment and community engagement only; no promise of profit or guaranteed value.",
+  "dataFreshness": "Dynamic price, market cap, volume, holders, progress, and rewards must be checked live."
+}

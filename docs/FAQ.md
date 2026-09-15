@@ -1,50 +1,42 @@
-# Frequently asked questions
+# FAQ
 
-## Is XIAO a cryptocurrency?
+## Is Xiao-Coin live?
 
-Broadly, it is a crypto asset or crypto token. Technically, version 0.1.0 is an
-ERC-20 token on an existing EVM chain, not a native coin with its own blockchain.
+The official Base.meme page is live at https://base.meme/coin/base:0xc62792b29E6aDbc179e47DAfCe159119bb918888. Verify the current state there
+and on BaseScan rather than relying on a screenshot.
+
+## What is the official contract?
+
+`0xc62792b29E6aDbc179e47DAfCe159119bb918888` on Base Mainnet, chain ID 8453.
 
 ## Is XIAO a stablecoin?
 
-No. It has no dollar peg, reserve, redemption promise, or stabilization mechanism.
+No. It has no dollar peg, reserve, redemption guarantee, or fixed market price.
 
-## Does one billion tokens cost one billion dollars to create?
+## Does the creator automatically own one billion XIAO?
 
-No. Supply is an integer in contract state. Deployment cost depends on gas, not
-the number's claimed market value. Creating supply also does not create economic value.
+No. Base.meme Standard mode does not automatically provide a free creator allocation.
+The platform allocates 80% to the bonding curve and 20% to the liquidity-pool process.
 
-## Can more XIAO be minted later?
+## Does more buying always increase the price?
 
-Not by this contract. There is no public or privileged mint function after the
-constructor. Anyone could deploy a separate counterfeit contract, which is why
-the canonical address matters.
+Net buying generally moves the bonding curve upward, while selling moves it downward.
+The effect depends on the curve and order size. After graduation, pool reserves and
+trading determine price. No direction is guaranteed.
 
-## Can the project freeze an address or reverse a transfer?
+## Is market cap the amount of cash available?
 
-No. There is no blacklist, pause, clawback, or admin function.
+No. Market cap is a valuation calculation, not cash in the pool and not an amount
+that holders can all withdraw at the displayed price.
 
-## Why mint everything to a treasury?
+## Can this repository trade XIAO?
 
-It separates fixed supply creation from later distribution policy. For production,
-the treasury should be a reviewed multisignature with transparent controls.
+No. Its website is informational and read-only. It links to Base.meme for trading.
 
-## Why use Base Sepolia first?
+## Is Xiao-Coin endorsed by Base or Coinbase?
 
-It is a public test environment for Base-compatible applications. Test ETH is
-used for gas and is not intended to have monetary value.
+No such endorsement is claimed. Base.meme states it is independent and community-built.
 
-## Can I deploy from Remix?
+## Where should live values be checked?
 
-Yes. The detailed guide uses MetaMask Browser Extension so the private key stays
-inside the wallet.
-
-## Can I deploy from Hardhat?
-
-Yes. Use a dedicated testnet key stored in Hardhat's encrypted keystore and run
-the preflight first.
-
-## Is the repository audited?
-
-No independent audit is included. Use of OpenZeppelin and tests does not replace
-an audit or guarantee safety.
+Use the official Base.meme page for live market/curve data and BaseScan for onchain data.

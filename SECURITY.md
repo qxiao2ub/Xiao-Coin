@@ -1,30 +1,26 @@
 # Security policy
 
-## Supported versions
+## Official contract
 
-Only the latest tagged release is considered supported. Version 0.1.0 is a
-prototype and has not been independently audited unless a signed audit report is
-later linked from an official release.
+`0xc62792b29E6aDbc179e47DAfCe159119bb918888` on Base Mainnet, chain ID `8453`.
 
-## Reporting a vulnerability
+## Report a problem
 
-Use GitHub private vulnerability reporting for this repository. Do not publish a
-working exploit, private key, recovery phrase, or sensitive deployment detail in
-a public issue.
+Open a GitHub security advisory for website or repository vulnerabilities. Do not
+post private keys, seed phrases, personal information, or exploitable wallet data
+in a public issue.
 
-Include:
+## This repository cannot
 
-- affected commit or release;
-- impacted file and function;
-- network and contract address, if deployed;
-- reproducible steps with harmless test data;
-- potential impact;
-- suggested mitigation, if known.
+- reverse an onchain transaction;
+- recover a lost wallet or seed phrase;
+- freeze or refund Base.meme trades;
+- guarantee the contract, platform, RPC, wallet, or third-party site is risk-free;
+- provide investment, legal, or tax advice.
 
-No bounty or response time is promised unless a separate written program states otherwise.
+## Anti-phishing rule
 
-## Scope warning
-
-This contract has no pause, blacklist, upgrade, or clawback mechanism. A deployed
-contract cannot be patched in place. Security response may therefore involve
-communications and migration planning, not reversal of onchain transactions.
+No legitimate contributor needs your seed phrase or private key. The website code
+included here performs read-only token calls, network switching, and the optional
+`wallet_watchAsset` request. It does not request token approvals, signatures for
+trading, or direct transfers.

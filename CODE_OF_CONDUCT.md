@@ -1,9 +1,5 @@
-# Code of conduct
+# Community code of conduct
 
-Be respectful, factual, and security-conscious. Discuss code and evidence rather
-than attacking people. Do not use project channels for price promotion, market
-manipulation, harassment, impersonation, phishing, secret solicitation, or false
-claims about audits, partnerships, listings, regulation, or guaranteed returns.
-
-Maintainers may remove content or participation that creates security, legal, or
-community risk.
+Be respectful, accurate, and transparent. Do not harass others, coordinate deceptive
+trading, impersonate project accounts, spread false claims, post wallet secrets, or
+pressure anyone to purchase XIAO. Community participation is voluntary.

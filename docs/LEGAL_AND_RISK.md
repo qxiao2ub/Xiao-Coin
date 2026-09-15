@@ -1,28 +1,34 @@
 # Legal and risk notice
 
-This repository is software documentation, not legal, financial, investment, or
-tax advice. Laws, regulatory interpretations, sanctions programs, tax rules, and
-platform policies can change.
+This repository is project information, software, and general education. It is not
+legal, tax, accounting, financial, or investment advice and is not an offer or
+solicitation to buy a security or other financial product.
 
-Creating ERC-20 bytecode is technically different from lawfully selling,
-distributing, promoting, redeeming, exchanging, or custodying a token. Naming a
-token "utility" or stating that it is not a security does not determine its legal treatment.
+## Economic risks
 
-Before any public distribution or real-value use, obtain advice tailored to:
+- XIAO can lose all market value.
+- Liquidity can be thin and large orders can suffer severe slippage.
+- The bonding curve, Base.meme, Uniswap, Base, wallets, RPC services, and frontends
+  can fail, change, or be exploited.
+- Creator rewards and platform rules can change and are not guaranteed income.
+- A market-cap number is not cash held by the project or guaranteed exit liquidity.
 
-- token rights and actual economic function;
-- marketing language and purchaser expectations;
-- sale, airdrop, reward, liquidity, and insider-allocation structure;
-- U.S. federal and state securities considerations;
-- money-transmission and money-services obligations;
-- sanctions and anti-money-laundering controls;
-- consumer protection, privacy, cybersecurity, and advertising;
-- tax, payroll, accounting, and reporting;
-- every country or state where users, purchasers, or operators are located.
+## Regulatory and tax risks
 
-XIAO is not a stablecoin in this design. The software includes no peg, reserve,
-redemption, payment guarantee, or deposit claim.
+Token characterization depends on facts, rights, marketing, distribution, and law.
+Calling an asset a “meme coin” does not determine its legal treatment. Public promotion,
+rewards, trading, transfers, and creator revenue can create tax and reporting duties.
+Obtain advice for every relevant jurisdiction.
 
-Technical risks include irreversible transfers, wallet compromise, counterfeit
-tokens, malicious dependencies, RPC failure, smart-contract bugs, treasury
-misuse, lost keys, and frontend compromise. No audit can guarantee safety.
+## Marketing boundaries
+
+Do not claim guaranteed returns, guaranteed listing, guaranteed liquidity, official
+Base/Coinbase endorsement, audited security, or partnerships that do not exist. Do
+not use wash trading, fake holders, fake volume, undisclosed paid promotion, or
+coordinated pump-and-dump conduct.
+
+## Base.meme independence
+
+Base.meme states that it is an independent community-built platform on Base and is
+not affiliated with Coinbase or Base. Xiao-Coin is not represented as endorsed by
+Base, Coinbase, Base.meme, or Uniswap.

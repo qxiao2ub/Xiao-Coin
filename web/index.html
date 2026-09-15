@@ -3,153 +3,159 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta
-      name="description"
-      content="Xiao Coin Base Sepolia testnet dashboard for inspecting and transferring XIAO."
-    />
-    <meta
-      http-equiv="Content-Security-Policy"
-      content="default-src 'self'; script-src 'self' https://cdn.jsdelivr.net; style-src 'self'; img-src 'self' data:; connect-src 'self' https://sepolia.base.org https://mainnet.base.org; object-src 'none'; base-uri 'self'; form-action 'self'"
-    />
-    <title>Xiao Coin | Base Sepolia Dashboard</title>
-    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+    <meta name="description" content="Official Xiao-Coin ($XIAO) information, contract verification, and community website on Base." />
+    <meta name="theme-color" content="#0b2e91" />
+    <meta property="og:title" content="Xiao-Coin ($XIAO) — Small ideas. Big community." />
+    <meta property="og:description" content="A community-driven meme coin built on Base for internet culture, creativity, humor, and community participation." />
+    <meta property="og:image" content="assets/social-card.png" />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self' https://mainnet.base.org; object-src 'none'; base-uri 'self'; form-action 'none'; frame-ancestors 'none'; upgrade-insecure-requests" />
+    <title>Xiao-Coin ($XIAO) | Official Community Site</title>
+    <link rel="icon" href="assets/favicon-64.png" type="image/png" />
     <link rel="manifest" href="manifest.webmanifest" />
-    <meta name="theme-color" content="#071126" />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <div class="background-grid" aria-hidden="true"></div>
+    <div class="ambient" aria-hidden="true"></div>
     <header class="site-header">
-      <a class="brand" href="#top" aria-label="Xiao Coin home">
-        <img src="assets/xiao-coin-logo.svg" alt="Xiao Coin logo" />
-        <span>XIAO COIN</span>
+      <a class="brand" href="#top" aria-label="Xiao-Coin home">
+        <img src="assets/token-icon-192.png" alt="Xiao-Coin logo" />
+        <span><b>XIAO-COIN</b><small>$XIAO · BASE</small></span>
       </a>
-      <div class="header-actions">
-        <span id="networkBadge" class="badge badge-muted">Wallet disconnected</span>
-        <button id="connectButton" class="button button-primary" type="button">
-          Connect wallet
-        </button>
-      </div>
+      <nav aria-label="Primary navigation">
+        <a href="#about">About</a>
+        <a href="#token">Token</a>
+        <a href="#verify">Verify</a>
+        <a href="#safety">Safety</a>
+      </nav>
+      <button id="connectButton" class="button button-outline" type="button">Connect wallet</button>
     </header>
 
     <main id="top">
       <section class="hero">
         <div class="hero-copy">
-          <p class="eyebrow">Transparent fixed-supply ERC-20 prototype</p>
-          <h1>One billion XIAO.<br />No hidden minting.</h1>
-          <p class="hero-text">
-            Xiao Coin is an educational and utility-token prototype built with
-            OpenZeppelin ERC-20 components. This dashboard defaults to Base
-            Sepolia testnet and does not display a price or promise investment value.
-          </p>
-          <div class="hero-buttons">
-            <button id="switchNetworkButton" class="button button-primary" type="button">
-              Switch to Base Sepolia
-            </button>
-            <a class="button button-secondary" href="#contract">Inspect contract</a>
+          <div class="pills">
+            <span class="pill live"><i></i> Live on Base</span>
+            <span class="pill">Base.meme Standard</span>
+            <span class="pill">0% tax at launch</span>
+          </div>
+          <p class="eyebrow">Community · creativity · humor</p>
+          <h1>Small ideas.<br /><span>Big community.</span></h1>
+          <p class="lead">Xiao-Coin ($XIAO) is a community-driven meme coin built on Base, bringing together internet culture, creativity, humor, and community participation. Small ideas, big community. XIAO is created for entertainment and community engagement, with no promise of profit or guaranteed value.</p>
+          <p class="lead zh">肖币（XIAO）是构建于 Base 网络、由社区驱动的 Meme Coin，汇聚互联网文化、创意、幽默和社区参与。小创意，大社区。XIAO 用于娱乐和社区互动，不承诺利润或任何保证价值。</p>
+          <div class="hero-actions">
+            <a class="button button-gold" href="https://base.meme/coin/base:0xc62792b29E6aDbc179e47DAfCe159119bb918888" target="_blank" rel="noopener noreferrer">View / trade on Base.meme</a>
+            <a class="button button-blue" href="https://basescan.org/token/0xc62792b29E6aDbc179e47DAfCe159119bb918888" target="_blank" rel="noopener noreferrer">Verify on BaseScan</a>
+          </div>
+          <div class="contract-strip">
+            <span>Official contract</span>
+            <code id="contractText">0xc62792b29E6aDbc179e47DAfCe159119bb918888</code>
+            <button id="copyContractButton" type="button" aria-label="Copy contract address">Copy</button>
           </div>
         </div>
-        <div class="token-orbit" aria-hidden="true">
-          <div class="orbit orbit-one"></div>
-          <div class="orbit orbit-two"></div>
-          <div class="coin-mark">X</div>
+        <div class="hero-art">
+          <div class="logo-glow"></div>
+          <img src="assets/xiao-coin-logo.png" alt="Xiao-Coin gold and blue community meme coin logo" />
         </div>
       </section>
 
-      <section class="metrics" aria-label="Token specification">
-        <article class="metric-card"><span>Name</span><strong>Xiao Coin</strong></article>
-        <article class="metric-card"><span>Symbol</span><strong>XIAO</strong></article>
-        <article class="metric-card"><span>Fixed supply</span><strong>1,000,000,000</strong></article>
-        <article class="metric-card"><span>Target network</span><strong>Base Sepolia</strong></article>
+      <section class="quick-facts" aria-label="Official token facts">
+        <article><span>Network</span><strong>Base Mainnet</strong><small>Chain ID 8453</small></article>
+        <article><span>Contract</span><strong>0xc627…8888</strong><small>Verify full address</small></article>
+        <article><span>Launch</span><strong>Base.meme</strong><small>Standard · ETH pair</small></article>
+        <article><span>Supply model</span><strong>1B XIAO</strong><small>800M curve · 200M LP</small></article>
       </section>
 
-      <section id="contract" class="panel two-column">
+      <section id="about" class="section split">
         <div>
-          <p class="eyebrow">Contract inspector</p>
-          <h2>Verify before interacting</h2>
-          <p class="muted">
-            Symbols are not unique. Enter the exact deployed contract address and
-            compare the returned metadata with the repository specification.
-          </p>
-          <label for="contractAddress">XIAO contract address</label>
-          <div class="input-row">
-            <input
-              id="contractAddress"
-              type="text"
-              autocomplete="off"
-              spellcheck="false"
-              placeholder="0x..."
-            />
-            <button id="loadContractButton" class="button button-primary" type="button">
-              Load
-            </button>
-          </div>
-          <div class="compact-actions">
-            <button id="addTokenButton" class="button button-secondary" type="button" disabled>
-              Add XIAO to wallet
-            </button>
-            <a id="explorerLink" class="button button-secondary disabled" href="#" target="_blank" rel="noopener noreferrer">
-              Open explorer
-            </a>
-          </div>
+          <p class="eyebrow">About Xiao-Coin</p>
+          <h2>A meme coin centered on participation, not promises.</h2>
         </div>
-
-        <dl class="data-grid">
-          <div><dt>Connected account</dt><dd id="accountValue">Not connected</dd></div>
-          <div><dt>Detected chain ID</dt><dd id="chainValue">-</dd></div>
-          <div><dt>Contract code</dt><dd id="codeValue">Not checked</dd></div>
-          <div><dt>Onchain name</dt><dd id="nameValue">-</dd></div>
-          <div><dt>Onchain symbol</dt><dd id="symbolValue">-</dd></div>
-          <div><dt>Decimals</dt><dd id="decimalsValue">-</dd></div>
-          <div><dt>Total supply</dt><dd id="supplyValue">-</dd></div>
-          <div><dt>Your balance</dt><dd id="balanceValue">-</dd></div>
-        </dl>
+        <div class="prose">
+          <p>Xiao-Coin brings a playful mascot and Base-native community identity to internet culture. The project welcomes original memes, art, translations, education, and respectful participation.</p>
+          <p>XIAO is not a stablecoin, equity interest, deposit, or guaranteed investment. Its market value can change rapidly and may fall to zero.</p>
+        </div>
       </section>
 
-      <section class="panel two-column">
+      <section id="token" class="section launch-section">
+        <div class="section-heading">
+          <p class="eyebrow">Launch mechanics</p>
+          <h2>From bonding curve to open market</h2>
+          <p>Live progress and market figures change continuously. Use the official Base.meme page for current data.</p>
+        </div>
+        <div class="steps">
+          <article class="step"><span>01</span><h3>Bonding curve</h3><p>800 million XIAO are allocated to the Standard launch curve. Net buying and selling move the curve price.</p></article>
+          <article class="step"><span>02</span><h3>2.5 ETH goal</h3><p>ETH is the selected raised token. The launch page uses a 2.5 ETH curve goal under the platform model.</p></article>
+          <article class="step"><span>03</span><h3>Uniswap V4 path</h3><p>After platform graduation conditions are met, 200 million reserved XIAO and collateral support the V4 liquidity phase.</p></article>
+        </div>
+        <div class="notice neutral"><strong>No automatic founder allocation.</strong> Base.meme Standard mode does not automatically give the creator free XIAO. Holdings must be checked onchain.</div>
+      </section>
+
+      <section id="verify" class="section inspector">
+        <div class="section-heading">
+          <p class="eyebrow">Onchain verification</p>
+          <h2>Read the official contract directly</h2>
+          <p>The inspector uses public Base RPC data. Wallet connection is optional and only adds your balance.</p>
+        </div>
+        <div class="inspector-grid">
+          <div class="status-card">
+            <div class="status-line"><span>RPC status</span><strong id="rpcStatus">Not checked</strong></div>
+            <div class="status-line"><span>Bytecode</span><strong id="codeStatus">Not checked</strong></div>
+            <div class="status-line"><span>Onchain name</span><strong id="nameValue">—</strong></div>
+            <div class="status-line"><span>Onchain symbol</span><strong id="symbolValue">—</strong></div>
+            <div class="status-line"><span>Decimals</span><strong id="decimalsValue">—</strong></div>
+            <div class="status-line"><span>Total supply</span><strong id="supplyValue">—</strong></div>
+            <div class="status-line"><span>Your XIAO balance</span><strong id="balanceValue">Connect wallet</strong></div>
+          </div>
+          <div class="verify-actions">
+            <button id="loadDataButton" class="button button-blue" type="button">Refresh onchain data</button>
+            <button id="switchNetworkButton" class="button button-outline" type="button">Switch wallet to Base</button>
+            <button id="addTokenButton" class="button button-outline" type="button" disabled>Add XIAO to wallet</button>
+            <a class="button button-outline" href="https://basescan.org/token/0xc62792b29E6aDbc179e47DAfCe159119bb918888" target="_blank" rel="noopener noreferrer">Open BaseScan</a>
+            <pre id="activityLog" aria-live="polite">Ready. Public reads do not require a wallet.</pre>
+          </div>
+        </div>
+      </section>
+
+      <section id="safety" class="section safety">
+        <div class="section-heading">
+          <p class="eyebrow">Safety first</p>
+          <h2>Verify, review, and never share secrets.</h2>
+        </div>
+        <div class="safety-grid">
+          <article><h3>Contract over ticker</h3><p>Anyone can copy “XIAO” or the logo. Only the complete official contract address identifies the token.</p></article>
+          <article><h3>No seed phrase requests</h3><p>No legitimate website or contributor needs your seed phrase, private key, or wallet password.</p></article>
+          <article><h3>No guaranteed value</h3><p>XIAO is speculative and may lose all value. Market cap is not guaranteed cash or exit liquidity.</p></article>
+          <article><h3>No manipulation</h3><p>Do not use wash trading, fake volume, impersonation, misleading claims, or coordinated pump-and-dump activity.</p></article>
+        </div>
+      </section>
+
+      <section class="section qr-section">
         <div>
-          <p class="eyebrow">Testnet transfer</p>
-          <h2>Send XIAO deliberately</h2>
-          <p class="muted">
-            The form calls only the standard ERC-20 transfer function. Check the
-            network, full recipient address, amount, and wallet simulation before signing.
-          </p>
+          <p class="eyebrow">Official access</p>
+          <h2>Scan only after checking the destination.</h2>
+          <p>QR codes are convenient, but always verify the final domain, network, and complete contract address.</p>
         </div>
-        <form id="transferForm" class="transfer-form">
-          <label for="recipientAddress">Recipient address</label>
-          <input id="recipientAddress" type="text" autocomplete="off" spellcheck="false" placeholder="0x..." />
-          <label for="transferAmount">Amount in XIAO</label>
-          <input id="transferAmount" type="text" inputmode="decimal" autocomplete="off" placeholder="100" />
-          <button id="sendButton" class="button button-primary" type="submit" disabled>
-            Review and send
-          </button>
-        </form>
+        <div class="qr-grid">
+          <a href="https://base.meme/coin/base:0xc62792b29E6aDbc179e47DAfCe159119bb918888" target="_blank" rel="noopener noreferrer"><img src="assets/base-meme-qr.png" alt="QR code for the official Xiao-Coin Base.meme page" /><strong>Base.meme</strong></a>
+          <a href="https://basescan.org/token/0xc62792b29E6aDbc179e47DAfCe159119bb918888" target="_blank" rel="noopener noreferrer"><img src="assets/basescan-qr.png" alt="QR code for the Xiao-Coin BaseScan token page" /><strong>BaseScan</strong></a>
+        </div>
       </section>
 
-      <section class="panel">
-        <p class="eyebrow">Activity log</p>
-        <h2>Local session</h2>
-        <pre id="activityLog" class="activity-log" aria-live="polite">Ready. Connect a wallet or load a contract address.</pre>
-      </section>
-
-      <section class="risk-notice">
-        <strong>Testnet and risk notice</strong>
-        <p>
-          Base Sepolia assets have no intended monetary value. This repository is
-          software for education and prototyping, not an offer to sell securities,
-          not financial advice, and not a substitute for independent security and legal review.
-        </p>
+      <section class="risk-banner">
+        <strong>Risk notice</strong>
+        <p>Xiao-Coin is intended for entertainment and community engagement. There is no promise of profit, guaranteed value, redemption, listing, liquidity, or continued platform availability. Always do your own research.</p>
       </section>
     </main>
 
     <footer>
-      <span>Xiao Coin open-source prototype</span>
-      <span>Author: Dr. Qingyang Xiao</span>
+      <div><img src="assets/token-icon-192.png" alt="" /><span><b>Xiao-Coin</b><small>Small ideas. Big community.</small></span></div>
+      <p>Built on Base · Launched through Base.meme · No affiliation or endorsement is implied.</p>
+      <p>Project creator: Dr. Qingyang Xiao</p>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/ethers@6.17.0/dist/ethers.min.js"></script>
     <script src="config.js"></script>
-    <script src="abi.js"></script>
     <script src="app.js"></script>
   </body>
 </html>

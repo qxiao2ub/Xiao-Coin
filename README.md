@@ -1,230 +1,179 @@
 <p align="center">
-  <img src="web/assets/xiao-coin-logo.svg" width="132" alt="Xiao Coin logo" />
+  <img src="web/assets/xiao-coin-logo.png" width="220" alt="Xiao-Coin logo" />
 </p>
 
-<h1 align="center">Xiao Coin (XIAO)</h1>
+<h1 align="center">Xiao-Coin ($XIAO)</h1>
 
 <p align="center">
-  Transparent fixed-supply ERC-20 prototype for Base, with a deliberately small attack surface.
+  <strong>Small ideas. Big community.</strong><br />
+  A community-driven meme coin built on Base.
 </p>
 
-> **Current status:** development and public-testnet software. This repository
-> does not announce a mainnet contract address, a token sale, a price, a yield,
-> or an expectation of profit.
+<p align="center">
+  <a href="https://base.meme/coin/base:0xc62792b29E6aDbc179e47DAfCe159119bb918888"><strong>Trade / view on Base.meme</strong></a>
+  ·
+  <a href="https://basescan.org/token/0xc62792b29E6aDbc179e47DAfCe159119bb918888">Verify on BaseScan</a>
+  ·
+  <a href="README.zh-CN.md">中文说明</a>
+</p>
 
-New users should begin with **`START_HERE.md`**.
+> [!IMPORTANT]
+> The only official Xiao-Coin contract address is
+> **`0xc62792b29E6aDbc179e47DAfCe159119bb918888`** on **Base Mainnet (chain ID 8453)**.
+> Token names and tickers can be copied. Always verify the complete address before interacting.
 
-## Repository highlights
+## About Xiao-Coin
 
-- `XiaoCoin.sol`: 1,000,000,000 fixed-supply XIAO minted once to a treasury.
-- OpenZeppelin ERC-20 implementation; no custom transfer accounting.
-- No owner, post-deployment minting, tax, blacklist, pause switch, or proxy.
-- Hardhat 3, Ethers v6, Mocha/Chai tests, TypeScript scripts, and Ignition module.
-- Base Sepolia preflight, deploy, inspect, and test-transfer utilities.
-- Encrypted Hardhat keystore workflow for private configuration variables.
-- GitHub Actions for CI, CodeQL, dependency review, and GitHub Pages.
-- Static, non-custodial Base Sepolia dashboard under `web/`.
-- Detailed documentation for Remix, Hardhat, security, operations, and release gates.
+Xiao-Coin ($XIAO) is a community-driven meme coin built on Base, bringing together internet culture, creativity, humor, and community participation. Small ideas, big community. XIAO is created for entertainment and community engagement, with no promise of profit or guaranteed value.
 
-## Token specification
+Xiao-Coin is live through the Base.meme launch platform. This repository is the
+project's public information, brand, verification, safety, and community website
+repository. It is **not** the deployed contract source repository and does not
+replace onchain verification or Base.meme's live market page.
 
-| Property | Value |
+## Official token facts
+
+| Item | Official information |
 |---|---|
-| Name | Xiao Coin |
-| Symbol | XIAO |
-| Standard | ERC-20 |
-| Supply | 1,000,000,000 XIAO |
-| Decimals | 18 |
-| Supply model | Fixed at deployment |
-| Intended first public environment | Base Sepolia testnet |
-| Base Sepolia chain ID | 84532 |
-| Base mainnet chain ID | 8453 |
+| Name | Xiao-Coin |
+| Ticker | XIAO |
+| Network | Base Mainnet |
+| Chain ID | `8453` |
+| Contract | `0xc62792b29E6aDbc179e47DAfCe159119bb918888` |
+| Launch platform | Base.meme |
+| Launch page | [Open Xiao-Coin on Base.meme](https://base.meme/coin/base:0xc62792b29E6aDbc179e47DAfCe159119bb918888) |
+| Explorer | [Open token on BaseScan](https://basescan.org/token/0xc62792b29E6aDbc179e47DAfCe159119bb918888) |
+| Launch mode | Base.meme Standard fair-launch model |
+| Pair / raised token | ETH |
+| Token tax setting | 0% at launch |
+| Token standard | ERC-20 on Base |
+| Total supply model | 1,000,000,000 XIAO under the Base.meme Standard model |
+| Automatic creator allocation | None under the Standard model |
 | Stablecoin | No |
-| Owner/admin | None |
-| Public mint | None |
-| Transfer tax | None |
-| Upgrade proxy | None |
+| Profit guarantee | None |
 
-## Architecture at a glance
+## Official links
+
+- **Base.meme:** https://base.meme/coin/base:0xc62792b29E6aDbc179e47DAfCe159119bb918888
+- **BaseScan token page:** https://basescan.org/token/0xc62792b29E6aDbc179e47DAfCe159119bb918888
+- **Contract address:** `0xc62792b29E6aDbc179e47DAfCe159119bb918888`
+
+The repository does not list unofficial social accounts. Add X, Telegram, Discord,
+or another website only after the project owner has created and verified them.
+
+## How the launch works
+
+Base.meme's Standard fair-launch model uses two stages:
+
+1. **Bonding curve:** 800,000,000 XIAO are available through the curve. Price moves
+   according to the platform's curve and net buying/selling activity.
+2. **Liquidity phase:** 200,000,000 XIAO are reserved for the liquidity pool. After
+   the platform's graduation conditions are reached, liquidity is migrated to a
+   Uniswap V4 market and locked under Base.meme's current process.
+
+The selected collateral / raised token is ETH and the launch page uses a 2.5 ETH
+bonding-curve raising goal. These mechanics are platform rules, not promises made
+by this repository. Platform parameters, fees, and reward rules can change; review
+the live Base.meme page and documentation before every transaction.
+
+## Creator holdings and rewards
+
+Base.meme Standard launches do **not** automatically give the creator a free token
+allocation. Any creator-held XIAO must come from a purchase or another onchain
+transfer. This repository intentionally does not publish a creator balance because
+wallet balances change and should be checked onchain.
+
+Base.meme currently documents creator rewards tied to eligible trading activity.
+Rewards are not guaranteed income, and rules may change. Review Base.meme's current
+reward documentation and the onchain reward recipient before relying on them.
+
+## Historical launch snapshot
+
+A timestamped creator-provided Base.meme screenshot and clearly labeled historical values are preserved in [`docs/LAUNCH_SNAPSHOT.md`](docs/LAUNCH_SNAPSHOT.md). Live data must still be checked on Base.meme and BaseScan.
+
+## Website included in this repository
+
+The `web/` directory is a GitHub Pages-ready, non-custodial project site. It includes:
+
+- the official logo and bilingual project introduction;
+- canonical contract-address display and copy button;
+- direct links to Base.meme and BaseScan;
+- read-only onchain token inspection;
+- optional wallet connection to display the connected account's XIAO balance;
+- Base Mainnet switching and “Add XIAO to wallet” support;
+- bonding-curve and launch-model explanations;
+- prominent risk and anti-scam notices.
+
+The site does **not** custody funds, request seed phrases, execute trades, or promise returns.
+
+## Publish with GitHub Pages
+
+1. Create an empty GitHub repository, for example `Xiao-Coin`.
+2. Upload this repository or use the helper in `scripts/`.
+3. In GitHub, open **Settings → Pages → Source → GitHub Actions**.
+4. Push to `main`. The included Pages workflow publishes the `web/` directory.
+5. Open the published site and independently verify all links and the full contract address.
+
+Detailed steps are in [`docs/GITHUB_PAGES_GUIDE.md`](docs/GITHUB_PAGES_GUIDE.md).
+
+## Repository map
 
 ```text
-User wallet
-    |
-    | standard ERC-20 calls
-    v
-XiaoCoin.sol on an EVM chain
-    |
-    +-- name/symbol/decimals
-    +-- totalSupply/balanceOf
-    +-- transfer
-    +-- approve/allowance/transferFrom
-
-Offchain repository components
-    +-- Hardhat tests and deployment tools
-    +-- deployment records
-    +-- static wallet dashboard
-    +-- operational and security documentation
+Xiao-Coin/
+├── README.md / README.zh-CN.md
+├── OFFICIAL_CONTRACT.md
+├── CONTRACT_ADDRESS.txt
+├── metadata/
+│   ├── project.json
+│   └── token.json
+├── docs/
+│   ├── ABOUT_XIAO.md
+│   ├── LAUNCH_AND_TOKENOMICS.md
+│   ├── LAUNCH_SNAPSHOT.md
+│   ├── HOW_TO_BUY_AND_SELL.md
+│   ├── VERIFY_OFFICIAL_TOKEN.md
+│   ├── SECURITY_AND_SCAM_PREVENTION.md
+│   ├── LEGAL_AND_RISK.md
+│   ├── COMMUNITY_GUIDELINES.md
+│   ├── ROADMAP.md
+│   ├── BRAND_GUIDE.md
+│   ├── GITHUB_PAGES_GUIDE.md
+│   ├── DEVELOPMENT_HISTORY.md
+│   ├── FAQ.md
+│   └── SOURCES.md
+├── web/
+│   ├── index.html
+│   ├── app.js
+│   ├── config.js
+│   ├── styles.css
+│   └── assets/
+├── scripts/
+└── .github/workflows/
 ```
 
-## Fastest safe path: Remix plus Base Sepolia
+## Safety rules
 
-This path does not require exporting a private key into the repository.
+- Never share a seed phrase, private key, wallet password, or recovery code.
+- Confirm **Base Mainnet / chain ID 8453** before interacting.
+- Match all 42 characters of the contract address, not just the ticker.
+- Use the Base.meme page for live trading data; screenshots and repository numbers age quickly.
+- Review the amount received, slippage, fees, and wallet simulation before signing.
+- Meme coins are highly speculative and can lose all market value.
+- Do not use wash trading, fake volume, misleading promotion, guaranteed-return claims,
+  or coordinated price manipulation.
 
-1. Read `docs/REMIX_BASE_SEPOLIA_GUIDE.md`.
-2. Open Remix from its official site and create `XiaoCoin.sol`.
-3. Copy `contracts/XiaoCoin.sol` into Remix.
-4. Compile with Solidity `0.8.34`, optimizer enabled, 200 runs, EVM target `cancun`.
-5. In Deploy & Run, select `Browser Extension -> MetaMask`.
-6. Verify the displayed network is **Base Sepolia, chain ID 84532**. Do not confuse
-   it with Ethereum Sepolia, chain ID 11155111.
-7. Confirm the wallet has Base Sepolia test ETH for gas.
-8. Enter the treasury address, keep value at zero, and deploy.
-9. Record the transaction hash and contract address.
-10. Verify source code and run the post-deployment checks.
+## Status and scope
 
-## Local Hardhat setup
+This repository documents the official Xiao-Coin launch and provides a public
+information site. It does not claim that Xiao-Coin is audited, endorsed by Base,
+Coinbase, Base.meme, or Uniswap, or suitable for any purchaser. Base.meme is an
+independent platform on Base.
 
-### Requirements
-
-- Node.js 22 or newer.
-- npm 10 or newer.
-- Git.
-
-```bash
-git clone https://github.com/YOUR_USERNAME/Xiao-Coin.git
-cd Xiao-Coin
-npm install
-npm run check
-```
-
-`npm install` creates a local package lock. Review and commit that lock file so
-future builds use the same dependency graph.
-
-## Base Sepolia deployment with Hardhat
-
-Use a dedicated testnet deployment wallet. Never commit a private key, recovery
-phrase, or wallet password.
-
-```bash
-npx hardhat keystore set BASE_SEPOLIA_DEPLOYER_PRIVATE_KEY
-```
-
-The public Base Sepolia RPC is already configured as a default. A private RPC
-provider can be stored in the encrypted keystore if desired:
-
-```bash
-npx hardhat keystore set BASE_SEPOLIA_RPC_URL
-```
-
-Fund the deployment wallet with Base Sepolia test ETH, then run:
-
-```bash
-npm run preflight:base-sepolia
-npm run deploy:base-sepolia
-```
-
-By default, the deployer is also the treasury. To use another treasury in a
-single shell session:
-
-```bash
-export XIAO_TREASURY_ADDRESS=0xYOUR_TREASURY
-npm run preflight:base-sepolia
-npm run deploy:base-sepolia
-```
-
-On PowerShell:
-
-```powershell
-$env:XIAO_TREASURY_ADDRESS="0xYOUR_TREASURY"
-npm run preflight:base-sepolia
-npm run deploy:base-sepolia
-```
-
-The direct script refuses unknown public chains and Base mainnet. It writes a
-record to `deployments/chain-84532.json` after success.
-
-## Reproducible deployment with Ignition
-
-```bash
-cp ignition/parameters/base-sepolia.example.json ignition/parameters/base-sepolia.json
-# Edit and independently verify the treasury address.
-npm run deploy:base-sepolia:ignition
-```
-
-For explorer verification, configure the verification API key supported by the
-installed Hardhat verification plugin and run:
-
-```bash
-npm run verify:base-sepolia
-```
-
-Ignition records deployment state and constructor parameters, making a failed or
-interrupted deployment easier to resume safely.
-
-## Inspect a deployed contract
-
-```bash
-export XIAO_CONTRACT_ADDRESS=0xYOUR_CONTRACT
-npm run inspect:base-sepolia
-```
-
-This checks deployed bytecode, name, symbol, decimals, and fixed supply.
-
-## Configure and publish the dashboard
-
-```bash
-npm run web:configure -- --address 0xYOUR_CONTRACT
-```
-
-Commit the updated `web/config.js`, push to GitHub, and enable GitHub Pages using
-GitHub Actions. The dashboard can also accept a contract address manually.
-
-## Upload this repository to GitHub
-
-Create an empty GitHub repository named `Xiao-Coin`, then use either the manual
-commands in `docs/GITHUB_UPLOAD_GUIDE.md` or:
-
-```bash
-bash scripts/git-upload.sh https://github.com/YOUR_USERNAME/Xiao-Coin.git
-```
-
-## Documentation map
-
-- `docs/REPOSITORY_MAP.md` - file-by-file repository and workflow guide.
-- `docs/PROJECT_SPECIFICATION.md` - authoritative project requirements.
-- `docs/ARCHITECTURE.md` - components and trust boundaries.
-- `docs/REMIX_BASE_SEPOLIA_GUIDE.md` - detailed no-private-key deployment path.
-- `docs/HARDHAT_GUIDE.md` - local testing and scripted deployment.
-- `docs/POST_DEPLOYMENT_CHECKLIST.md` - verification immediately after deployment.
-- `docs/TOKENOMICS.md` - supply design and non-binding allocation worksheet.
-- `docs/TEST_PLAN.md` - expected automated and manual tests.
-- `docs/SECURITY_CHECKLIST.md` - secure-development controls.
-- `docs/THREAT_MODEL.md` - assets, actors, risks, and mitigations.
-- `docs/OPERATIONS_RUNBOOK.md` - key, treasury, incident, and release operations.
-- `docs/TROUBLESHOOTING.md` - common Remix, MetaMask, faucet, and Hardhat problems.
-- `docs/MAINNET_RELEASE_GATES.md` - conditions that must precede mainnet.
-- `docs/LEGAL_AND_RISK.md` - non-technical risks and boundaries.
-- `docs/WHITEPAPER_DRAFT.md` - a clearly labeled draft, not an offering document.
-- `docs/GLOSSARY.md` - technical terms in plain language.
-
-## Security position
-
-This repository favors simplicity over features. Simplicity does not make any
-smart contract risk-free. Before real-value use:
-
-1. freeze the exact commit and dependency lock;
-2. run all automated tests and independent static analysis;
-3. obtain an independent smart-contract review or audit;
-4. verify constructor parameters and deployment chain out of band;
-5. verify source code on the target explorer;
-6. establish treasury controls, incident response, accounting, and legal review.
-
-See `SECURITY.md` and `docs/MAINNET_RELEASE_GATES.md`.
-
-## Author
+## Author / project creator
 
 **Dr. Qingyang Xiao**
 
-## License
+## Licensing
 
-MIT. See `LICENSE`.
+- Repository code and written documentation: MIT License, unless noted otherwise.
+- Xiao-Coin name, logo, and brand assets: see `BRAND_ASSET_LICENSE.md`.

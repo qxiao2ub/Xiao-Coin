@@ -1,11 +1,11 @@
 {
-  "name": "Xiao Coin Base Sepolia Dashboard",
+  "name": "Xiao-Coin Official Community Site",
   "short_name": "XIAO",
-  "description": "A non-custodial testnet dashboard for inspecting and transferring Xiao Coin on Base Sepolia.",
   "start_url": "./",
   "display": "standalone",
-  "background_color": "#071126",
-  "theme_color": "#071126",
+  "background_color": "#050914",
+  "theme_color": "#0b2e91",
+  "description": "Xiao-Coin ($XIAO) is a community-driven meme coin built on Base, bringing together internet culture, creativity, humor, and community participation. Small ideas, big community. XIAO is created for entertainment and community engagement, with no promise of profit or guaranteed value.",
   "icons": [
     {
       "src": "assets/token-icon-192.png",
